@@ -2,10 +2,11 @@ body
 {
     margin: 0;
     padding: 10px;
-    font-family: Arial, Helvetica;
+    font-family: 'Azeret Mono', monospace, Arial, Helvetica;
+    background-color: lightgoldenrodyellow;
 }
 
-input[type=text]
+.input-el[type=text]
 {
     font-family: 'Azeret Mono', monospace;
     -webkit-transition: all 0.30s ease-in-out;
@@ -22,7 +23,7 @@ input[type=text]
     margin-bottom: 5px;
 }
 
-input[type=text]:focus
+.input-el[type=text]:focus
 {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
@@ -37,6 +38,13 @@ input[type=text]:focus
     padding: 5px 5px;
     border-radius: 5px;
     border:none;
+}
+
+#input-btn:hover
+{
+    color: #5790f2;
+    background-color: white;
+    cursor: pointer;
 }
 
 #delete-btn
