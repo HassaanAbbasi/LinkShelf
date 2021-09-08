@@ -42,9 +42,7 @@ function listUpdate()
         btnRemove.type = "button";
         btnRemove.id = "delete-btn-small";
         btnRemove.onclick = function () {
-            links = links.filter(function (val,index,arr) {return val != name});
-            localStorage.setItem("links", JSON.stringify(links));
-            listUpdate();
+            deleteSmallButton(name);
         };
 
         link.setAttribute('href', window.location.href);
@@ -65,3 +63,10 @@ deleteButton.addEventListener("click", function() {
     links = [];
     listUpdate();
 })
+
+function deleteSmallButton(name)
+{
+    links = links.filter(function (val,index,arr) {return val != name});
+    localStorage.setItem("links", JSON.stringify(links));
+    listUpdate();
+}
