@@ -9,7 +9,7 @@ if(linksFromLocalStorage != null)
 {
     links = linksFromLocalStorage;
     listUpdate();
-}
+};
 
 inputButton.addEventListener("click", function() {
     var inputVal = input[0].value;
@@ -25,6 +25,14 @@ inputButton.addEventListener("click", function() {
         alert("Whoops! You can't save this tab with a blank input. Please write anything in the input line and press 'Save Tab'.");
     }
 });
+
+input[0].addEventListener("keyup", function(e) {
+    if(e.keyCode === 13)
+    {
+        e.preventDefault();
+        inputButton.click();
+    }
+})
 
 function listUpdate()
 {
