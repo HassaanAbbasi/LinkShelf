@@ -66,6 +66,19 @@ body
     cursor: pointer;
 }
 
+#delete-btn-small
+{
+    background-color: transparent;
+    padding: 2px 3px;
+    border:none;
+    margin-left: 6px;
+}
+
+#delete-btn-small:hover
+{
+    cursor: pointer;
+}
+
 ul
 {
     margin-top: 15px;

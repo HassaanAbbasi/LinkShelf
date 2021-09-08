@@ -32,12 +32,26 @@ function listUpdate()
     for (let i = 0; i < links.length; i++) 
     {
         const name = links[i];
+
         var item = document.createElement("li");
         var link = document.createElement("a");
         link.innerText = name;
+
+        var btnRemove = document.createElement("INPUT");
+        btnRemove.value = "❌";
+        btnRemove.type = "button";
+        btnRemove.id = "delete-btn-small";
+        btnRemove.onclick = function () {
+            links = links.filter(function (val,index,arr) {return val != name});
+            localStorage.setItem("links", JSON.stringify(links));
+            listUpdate();
+        };
+
         link.setAttribute('href', window.location.href);
         link.setAttribute('target', "_blank");
+
         item.appendChild(link);
+        item.appendChild(btnRemove);
         list.appendChild(item);
     }
 }
