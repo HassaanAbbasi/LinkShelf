@@ -1,7 +1,15 @@
 const inputButton = document.getElementById("input-btn"); //Blue button
+const deleteButton = document.getElementById("delete-btn") //Red button
 const input = document.getElementsByClassName("input-el"); //Text Field
 const list = document.getElementById("list"); //List
 let links = []; //Stores the saved links
+const linksFromLocalStorage = JSON.parse(localStorage.getItem("links"));
+
+if(linksFromLocalStorage != null)
+{
+    links = linksFromLocalStorage;
+    listUpdate();
+}
 
 inputButton.addEventListener("click", function() {
     var inputVal = input[0].value;
@@ -9,7 +17,8 @@ inputButton.addEventListener("click", function() {
     {
         links.push(inputVal);
         input[0].value = "";
-        listUpdate(links.length - 1);
+        localStorage.setItem("links", JSON.stringify(links));
+        listUpdate();
     }
     else
     {
@@ -17,14 +26,28 @@ inputButton.addEventListener("click", function() {
     }
 });
 
-function listUpdate(link)
+function listUpdate()
 {
-    const name = links[link];
-    var item = document.createElement("li");
-    var link = document.createElement("a");
-    link.innerText = name;
-    link.setAttribute('href', window.location.href);
-    link.setAttribute('target', "_blank");
-    item.appendChild(link);
-    list.appendChild(item);
+    list.innerHTML = "";
+    for (let i = 0; i < links.length; i++) 
+    {
+        const name = links[i];
+        var item = document.createElement("li");
+        var link = document.createElement("a");
+        link.innerText = name;
+        link.setAttribute('href', window.location.href);
+        link.setAttribute('target', "_blank");
+        item.appendChild(link);
+        list.appendChild(item);
+    }
 }
+
+deleteButton.addEventListener("click", function() {
+    if(links.length == 0)
+    {
+        alert("There are no links in your list to delete.");
+    }
+    localStorage.clear();
+    links = [];
+    listUpdate();
+})

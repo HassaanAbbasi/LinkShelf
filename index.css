@@ -4,6 +4,7 @@ body
     padding: 10px;
     font-family: 'Azeret Mono', monospace, Arial, Helvetica;
     background-color: lightgoldenrodyellow;
+    min-width: 400px;
 }
 
 .input-el[type=text]
@@ -49,9 +50,35 @@ body
 
 #delete-btn
 {
-
+    font-family: 'Azeret Mono', monospace;
+    color: white;
+    background-color: #e68585;
+    font-weight: bold;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border:none;
 }
 
-/* 
-    use #e68585 for delete buttons
-*/
+#delete-btn:hover
+{
+    color: #e68585;
+    background-color: white;
+    cursor: pointer;
+}
+
+ul
+{
+    margin-top: 15px;
+    list-style: none;
+    padding-left: 0;
+}
+
+li
+{
+    margin-top: 6px;
+}
+
+a
+{
+    color: black;
+}
