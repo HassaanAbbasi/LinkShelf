@@ -85,13 +85,17 @@ saveBtn.addEventListener("click", function() {
 })
 
 note.addEventListener("keyup", function(e) {
-    if(e.keyCode === 13){
+    if (e.keyCode === 13){
         e.preventDefault()
         saveBtn.click()
     }
 })
 
 deleteBtn.addEventListener("click", function(e) {
+    if (JSON.stringify(data) === JSON.stringify({})){
+        alert("There are no links in your list to delete.")
+        return
+    }
     data = {}
     saveData()
     render()

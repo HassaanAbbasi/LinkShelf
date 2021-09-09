@@ -10,5 +10,6 @@
     "permissions":
     [
         "tabs"
-    ]
+    ],
+    "description": "This chrome extension allows you to conveniently remember and keep track of sites you've visited with a personal note."
 }
