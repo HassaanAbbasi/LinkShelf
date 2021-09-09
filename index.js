@@ -2,7 +2,7 @@ const inputButton = document.getElementById("input-btn"); //Blue button
 const deleteButton = document.getElementById("delete-btn") //Red button
 const input = document.getElementsByClassName("input-el"); //Text Field
 const list = document.getElementById("list"); //List
-let links = []; //Stores the saved links
+let links = []; //Stores the saved link names
 const linksFromLocalStorage = JSON.parse(localStorage.getItem("links"));
 
 if(linksFromLocalStorage != null)
@@ -44,7 +44,7 @@ function listUpdate()
         var item = document.createElement("li");
         var link = document.createElement("a");
         link.innerText = name;
-
+        
         var btnRemove = document.createElement("INPUT");
         btnRemove.value = "❌";
         btnRemove.type = "button";
@@ -52,8 +52,8 @@ function listUpdate()
         btnRemove.onclick = function () {
             deleteSmallButton(name);
         };
-
-        link.setAttribute('href', window.location.href);
+        
+        link.setAttribute('href', url);
         link.setAttribute('target', "_blank");
 
         item.appendChild(link);
